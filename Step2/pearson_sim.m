@@ -18,8 +18,10 @@ function [ sim ] = pearson_sim( X, Y )
     ryms = sum( (Y - avg_Y) .^ 2 ) ^ 0.5;
     
     denominator = rxms * ryms;
-    
-    sim = numerator / denominator;
-    
+    if denominator == 0,
+        sim = -inf;
+    else
+        sim = numerator / denominator;
+    end
 end
 

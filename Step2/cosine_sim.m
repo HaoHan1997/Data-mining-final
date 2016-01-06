@@ -11,6 +11,9 @@ function [ sim ] = cosine_sim( X, Y )
     numerator = sum(X .* Y);
     denominator = ( sum(X .^ 2) ^ 0.5 ) * ( sum(Y .^ 2) ^ 0.5 );
     
-    sim = numerator / denominator;
-    
+    if denominator == 0,
+        sim = -inf;
+    else
+        sim = numerator / denominator;
+    end
 end
