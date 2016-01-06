@@ -16,5 +16,4 @@ function [ norm_row ] = normalize_row( row )
             norm_row(i) = row(i) - avg_non_zero;
         end
     end
-    
 end
