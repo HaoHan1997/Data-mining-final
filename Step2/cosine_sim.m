@@ -1,6 +1,5 @@
-%% Final Project - Problem2 - pearson_sim.m
+%% Final Project - Problem2 - cosine_sim.m
 % Created by 1352847 Junpeng Ouyang on Jan 6, 2015. All rights reserved.
-% Reference: https://segmentfault.com/q/1010000000094674
 
 %% Function implementation
 
