@@ -62,3 +62,6 @@ ratings_train.txt
 
 # Matlab Buffers
 *.m~
+
+# Matlab .mat compressed file
+*.mat
