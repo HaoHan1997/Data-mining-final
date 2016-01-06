@@ -2,6 +2,8 @@
 % Created by 1352847 Junpeng Ouyang on Jan 6, 2015. All rights reserved.
 % Reference: https://segmentfault.com/q/1010000000094674
 
+%% Function implementation
+
 function [ sim ] = pearson_sim( X, Y )
 %PEARSON_SIM Summary of this function goes here
 %   Detailed explanation goes here
