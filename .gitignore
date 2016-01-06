@@ -55,3 +55,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Ignore Step 1 spawn data
+ratings_test.txt
+ratings_train.txt
+
+# Matlab Buffers
+*.m~
