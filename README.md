@@ -38,6 +38,18 @@ python filter_data.py
 3. neighbour_predict_2.csv
 4. incorporating_temporal_dynamics_predict.csv
 
+### 生成的格式化预测结果
+
+1. baseline_predict.dat
+2. neighbour_item_predict.dat
+3. neighbour_user_predict.dat
+4. temporal_dynamics_predict.dat
+
+格式如下：
+```
+用户ID::电影ID::预测评级::时间戳
+```
+
 每行格式为：
 
 预测值,真实值,方差,从第一行开始的均方差
