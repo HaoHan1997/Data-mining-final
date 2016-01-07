@@ -1,4 +1,4 @@
-%% Final Project - Problem2 - step1.m
+%% Final Project - Problem2 - step2_1.m
 % Created by 1352847 Junpeng Ouyang on Jan 6, 2015. All rights reserved.
 
 % Following the Page 31 of lect-recom.pdf, we use the neighborhood approach to
