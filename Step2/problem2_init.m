@@ -67,6 +67,27 @@ for i = 1:movie_total,
     end
 end
 
+%% Calculate simulate vector for each movie vs other movies
+
+% ii_mat_sim(i, j) = sim means movie#i and movie#j have pearson similarity
+% values sim. (After normalized)
+ii_mat_sim = zeros(movie_total, movie_total);
+
+for i = 1:(movie_total - 1),
+    ii_mat_sim(i, i) = 1.0;
+    for j = (i + 1):movie_total,
+        tic
+        movie_i = normalize_ii_mat(i, :);
+        movie_j = normalize_ii_mat(j, :);
+        sim = pearson_sim(movie_i, movie_j);
+        ii_mat_sim(i, j) = sim;
+        ii_mat_sim(j, i) = sim;
+        toc
+    end
+end
+ii_mat_sim(movie_total, movie_total) = 1.0;
+
+
 %% Export as .mat compressed buffer
 save('ii_mat');
 
