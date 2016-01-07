@@ -50,6 +50,18 @@ for test_index = 1:length(test_data),
     fprintf('Test data #%d: predict %f, real %f.\n', test_index, predict_y(test_index), rating_real);
 end
 
-csvwrite('baseline_predict.csv', [predict_y, test_data(:, 3)]);
+
+%% Root Mean Square Error
+rmse = zeros(length(test_data), 2);
+for test_index = 1:length(test_data),
+    rmse(test_index, 1) = ((predict_y(test_index) - test_data(test_index, 3)) ^ 2) ^ 0.5;
+    if test_index == 1,
+        rmse(test_index, 2) = rmse(test_index, 1);
+    else
+        rmse(test_index, 2) = rmse(test_index - 1, 2) + rmse(test_index, 1);
+    end
+end
+
+csvwrite('baseline_predict.csv', [predict_y, test_data(:, 3), rmse(:, 1), rmse(:, 2)]);
 
 % parpool close;
