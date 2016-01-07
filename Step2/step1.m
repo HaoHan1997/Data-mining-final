@@ -7,8 +7,8 @@
 
 % ¦Ì = overall mean rating, already calculated in problem2_init.m.
 % bx = rating deviation of user x
-%    = (avg. rating of user x) ? ¦Ì
-% bi = (avg. rating of movie i) ? ¦Ì
+%    = (avg. rating of user x) - ¦Ì
+% bi = (avg. rating of movie i) - ¦Ì
 
 %% We read data buffer from problem2_init spawned
 
@@ -24,7 +24,6 @@ for test_index = 1:length(test_data),
     rating_movie = test_data(test_index, 2);
     rating_real = test_data(test_index, 3);
 
-    sim_vec = zeros(movie_total, 1);
     norm_movie_row = normalize_ii_mat(rating_movie, :);
     
     % This code takes 99% of the time in per loop. Need optimize.
@@ -39,11 +38,11 @@ for test_index = 1:length(test_data),
     % t2_e = clock;
     sim_vec = ii_mat_sim(rating_movie, :);
     
-    rxi = estimate_rating(sim_vec, ii_mat(:, rating_user)', rating_movie);
+    bx = user_mean_rating(rating_user) - mu;
+    bi = movie_mean_rating(rating_movie) - mu;
+    bxi = mu + bx + bi;
     
-    bxi = mu + (user_mean_rating(rating_user) - mu) + (movie_mean_rating(rating_movie) - mu);
-    
-    predict_y(test_index) = bxi + rxi;
+    predict_y(test_index) = bxi;
 
     % t1_e = clock;
    

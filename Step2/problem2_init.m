@@ -63,7 +63,7 @@ for i = 1:movie_total,
     movie_rated_vec = movie_rated_vec(movie_rated_vec ~= 0);
     movie_mean_rating(i) = mean(movie_rated_vec);
     if (isnan(movie_mean_rating(i))),
-        movie_mean_rating(i) = 0;
+        movie_mean_rating(i) = mu;
     end
 end
 
