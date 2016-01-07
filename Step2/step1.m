@@ -50,4 +50,6 @@ for test_index = 1:length(test_data),
     fprintf('Test data #%d: predict %f, real %f.\n', test_index, predict_y(test_index), rating_real);
 end
 
+csvwrite('baseline_predict.csv', [predict_y, test_data(:, 3)]);
+
 % parpool close;
