@@ -54,11 +54,11 @@ end
 %% Root Mean Square Error
 rmse = zeros(length(test_data), 2);
 for test_index = 1:length(test_data),
-    rmse(test_index, 1) = ((predict_y(test_index) - test_data(test_index, 3)) ^ 2) ^ 0.5;
+    rmse(test_index, 1) = (predict_y(test_index) - test_data(test_index, 3)) ^ 2;
     if test_index == 1,
-        rmse(test_index, 2) = rmse(test_index, 1);
+        rmse(test_index, 2) = rmse(test_index, 1) ^ 0.5;
     else
-        rmse(test_index, 2) = rmse(test_index - 1, 2) + rmse(test_index, 1);
+        rmse(test_index, 2) = (rmse(test_index - 1, 2) ^ 2 + rmse(test_index, 1)) ^ 0.5;
     end
 end
 

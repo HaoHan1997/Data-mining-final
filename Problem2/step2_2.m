@@ -45,17 +45,24 @@ for test_index = 1:length(test_data),
     
     predict_y(test_index) = bxi + rxi;
     
+    predict_y(test_index) = bxi + rxi;
+    if predict_y(test_index) < 1,
+        predict_y(test_index) = 1;
+    elseif predict_y(test_index) > 5,
+        predict_y(test_index) = 5;
+    end
+    
     fprintf('Test data #%d: predict %f, real %f, error = %f.\n', test_index, predict_y(test_index), rating_real, predict_y(test_index) - rating_real);
 end
 
 %% Root Mean Square Error
 rmse = zeros(length(test_data), 2);
 for test_index = 1:length(test_data),
-    rmse(test_index, 1) = ((predict_y(test_index) - test_data(test_index, 3)) ^ 2) ^ 0.5;
+    rmse(test_index, 1) = (predict_y(test_index) - test_data(test_index, 3)) ^ 2;
     if test_index == 1,
-        rmse(test_index, 2) = rmse(test_index, 1);
+        rmse(test_index, 2) = rmse(test_index, 1) ^ 0.5;
     else
-        rmse(test_index, 2) = rmse(test_index - 1, 2) + rmse(test_index, 1);
+        rmse(test_index, 2) = (rmse(test_index - 1, 2) ^ 2 + rmse(test_index, 1)) ^ 0.5;
     end
 end
 
