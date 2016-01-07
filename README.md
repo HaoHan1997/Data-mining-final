@@ -17,7 +17,7 @@ python filter_data.py
 ```
 
 ## Problem 2 Recommendation 推荐算法
-蛋疼的20分，第三步居然要看论文 \_(:з」∠)_。
+
 ### Usage
 执行顺序：
 
@@ -26,20 +26,21 @@ python filter_data.py
 3. 初始化Step2（step2_init.m）【不推荐直接运行，请下载该步骤的<a href="http://pan.baidu.com/s/1hqYjhxa">缓存数据</a>，放在Problem2文件夹下】
 4. 使用item-based neighbour estimator预测（step2_1.m）。
 5. 使用user-based neighbour estimator预测（step2_2.m）。
-6. TODO
+6. 使用incorporating temporal dynamics estimator预测（step3.m）。
 
 ### 生成的csv
 
 自带的ratings_train.csv和ratings_test.csv就是第一步生成的txt改个后缀名而已。
-执行以上步骤后会生成以下csv文件：
+执行以上步骤后会生成以下csv文件，分别为：
 
 1. baseline_predict.csv
 2. neighbour_predict_1.csv
 3. neighbour_predict_2.csv
+4. incorporating_temporal_dynamics_predict.csv
 
 每行格式为：
 
-预测值,真实值,均方差,从第一行开始的均方差之和
+预测值,真实值,方差,从第一行开始的均方差
 
 ## Problem 3 K-means Clustering K-means聚类
 

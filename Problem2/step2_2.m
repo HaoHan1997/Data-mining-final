@@ -62,7 +62,7 @@ for test_index = 1:length(test_data),
     if test_index == 1,
         rmse(test_index, 2) = rmse(test_index, 1) ^ 0.5;
     else
-        rmse(test_index, 2) = (rmse(test_index - 1, 2) ^ 2 + rmse(test_index, 1)) ^ 0.5;
+        rmse(test_index, 2) = (( (rmse(test_index - 1, 2) ^ 2) * (test_index - 1) + rmse(test_index, 1)) / test_index) ^ 0.5;
     end
 end
 

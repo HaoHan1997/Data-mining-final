@@ -26,16 +26,6 @@ for test_index = 1:length(test_data),
 
     norm_movie_row = normalize_ii_mat(rating_movie, :);
     
-    % This code takes 99% of the time in per loop. Need optimize.
-    % t2_s = clock;
-    %for i = 1:movie_total,
-    %    if i == rating_movie,
-    %        sim_vec(i) = 1.0;
-    %        continue;
-    %    end
-    %    sim_vec(i) = pearson_sim(norm_movie_row, normalize_ii_mat(i, :));
-    %end
-    % t2_e = clock;
     sim_vec = ii_mat_sim(rating_movie, :);
     
     bx = user_mean_rating(rating_user) - mu;
@@ -45,8 +35,7 @@ for test_index = 1:length(test_data),
     predict_y(test_index) = bxi;
 
     % t1_e = clock;
-   
-    %fprintf('Test data #%d: predict %f, real %f. Simvec Use time: %f, total time: %f.\n', test_index, predict_y(test_index), rating_real, etime(t2_e, t2_s), etime(t1_e, t1_s));
+    
     fprintf('Test data #%d: predict %f, real %f, error = %f.\n', test_index, predict_y(test_index), rating_real, predict_y(test_index) - rating_real);
 end
 
@@ -58,7 +47,7 @@ for test_index = 1:length(test_data),
     if test_index == 1,
         rmse(test_index, 2) = rmse(test_index, 1) ^ 0.5;
     else
-        rmse(test_index, 2) = (rmse(test_index - 1, 2) ^ 2 + rmse(test_index, 1)) ^ 0.5;
+        rmse(test_index, 2) = (( (rmse(test_index - 1, 2) ^ 2) * (test_index - 1) + rmse(test_index, 1)) / test_index) ^ 0.5;
     end
 end
 
