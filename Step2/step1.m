@@ -47,7 +47,7 @@ for test_index = 1:length(test_data),
     % t1_e = clock;
    
     %fprintf('Test data #%d: predict %f, real %f. Simvec Use time: %f, total time: %f.\n', test_index, predict_y(test_index), rating_real, etime(t2_e, t2_s), etime(t1_e, t1_s));
-    fprintf('Test data #%d: predict %f, real %f.\n', test_index, predict_y(test_index), rating_real);
+    fprintf('Test data #%d: predict %f, real %f, error = %f.\n', test_index, predict_y(test_index), rating_real, predict_y(test_index) - rating_real);
 end
 
 
