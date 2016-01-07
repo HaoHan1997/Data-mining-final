@@ -21,7 +21,7 @@ python filter_data.py
 ### Usage
 执行顺序：
 
-1. 初始化（problem2_init.m）【不推荐直接运行，请下载该步骤的<a href="http://pan.baidu.com/s/1qXsR3n2">缓存数据</a>，放在Problem2文件夹下】
+1. 初始化（step1_init.m）【不推荐直接运行，请下载该步骤的<a href="http://pan.baidu.com/s/1qXsR3n2">缓存数据</a>，放在Problem2文件夹下】
 2. 使用item-based baseline estimator预测（step1.m）。
 3. 初始化Step2（step2_init.m）【不推荐直接运行，请下载该步骤的<a href="http://pan.baidu.com/s/1hqYjhxa">缓存数据</a>，放在Problem2文件夹下】
 4. 使用item-based neighbour estimator预测（step2_1.m）。
